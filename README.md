@@ -1,2 +1,2 @@
 # algorithm-py
-alogorithm write by myself
+alogorithm writed by myself
