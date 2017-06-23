@@ -3,7 +3,7 @@
 from fractions import Fraction
 
 
-def print_matrix(info, A):  #¸ñÊ½»¯Êä³ö¾ØÕó
+def print_matrix(info, A):  #æ ¼å¼åŒ–è¾“å‡ºçŸ©é˜µ
     print info
     for i in range(len(A)):
         for j in range(len(A[i])):
@@ -29,7 +29,7 @@ def gauss(A):
     cur_row, cur_col = 0, 0
 
     while cur_row < rown and cur_col < coln-1:
-        #Ñ¡Ö÷Ôª
+        #é€‰ä¸»å…ƒ
         pivot = A[cur_row][cur_col]
         pindex = cur_row
 
@@ -37,21 +37,21 @@ def gauss(A):
             if abs(A[i][cur_col]) > abs(pivot):
                 pivot = A[i][cur_col]
                 pindex = i
-        print_matrix("Ñ¡Ö÷Ôª", A)
+        print_matrix("é€‰ä¸»å…ƒ", A)
 
 
-        if pivot == 0: #ÕâÒ»ÁĞÏÂÃæÒÑ¾­È«Áã
+        if pivot == 0: #è¿™ä¸€åˆ—ä¸‹é¢å·²ç»å…¨é›¶
             cur_col += 1
             continue
 
 
-        #½«Ö÷Ôª»»µ½µ±Ç°ĞĞ
+        #å°†ä¸»å…ƒæ¢åˆ°å½“å‰è¡Œ
         if pindex != cur_row:
             swap_line(A,pindex,cur_row)
-        print_matrix("»»Ö÷Ôªµ½µ±Ç°ĞĞºó", A)
+        print_matrix("æ¢ä¸»å…ƒåˆ°å½“å‰è¡Œå", A)
 
        
-        #ÏûÔª
+        #æ¶ˆå…ƒ
         temp = Fraction(A[cur_row][cur_col])
         for col in range(cur_col,coln):
             A[cur_row][col] = Fraction(A[cur_row][col]) / temp
@@ -62,11 +62,11 @@ def gauss(A):
             temp = Fraction(A[i][cur_col])
             for col in range(cur_col,coln):
                 A[i][col] = Fraction(A[i][col]) - temp*A[cur_row][col]
-        print_matrix("ÏûÔªºó", A)
+        print_matrix("æ¶ˆå…ƒå", A)
         cur_row += 1
         cur_col += 1
 
-    if cur_row < cur_col:
+    if cur_row < cur_col or cur_col < coln-1::
         return False
     if cur_row < rown:
         for i in range(cur_row,rown):
