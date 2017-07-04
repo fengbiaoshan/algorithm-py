@@ -81,7 +81,7 @@ if __name__ == "__main__":
           [6.0,   8.0,  10.0,    66.0]]
 
     if gauss(A):
-        print A
+        print_matrix("最后一列为解", A)
     else:
         print "no solution or many solutions"
     
