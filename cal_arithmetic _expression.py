@@ -19,11 +19,11 @@ def operation(num1, num2, op):
     if op == "+":
         return num1 + num2
     if op == "-":
-        return num1 - num2
+        return num2 - num1
     if op == "*":
         return num1 * num2
     if op == "/":
-        return float(num1) / num2
+        return float(num2) / num1
 
 def compare_priority(notation, stacktop):
         return priority[opindex[notation]][opindex[stacktop]]
