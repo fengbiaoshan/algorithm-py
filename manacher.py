@@ -23,21 +23,14 @@ def lps(a):
     while i < len(a):
         if i > maxr:
             j = 0
-            while i+j < len(a) and a[i+j] == a[i-j]:
-                if i+j > maxr:
-                    maxr = i+j
-                    pos = i
-                j+=1
-            LR[i] = j
-            
         else:
             j = min(LR[2*pos-i], maxr-i)
-            while i+j < len(a) and a[i+j] == a[i-j]:
-                if i+j > maxr:
-                    maxr = i+j
-                    pos = i
-                j+=1
-            LR[i] = j
+        while i+j < len(a) and a[i+j] == a[i-j]:
+            if i+j > maxr:
+                maxr = i+j
+                pos = i
+            j+=1
+        LR[i] = j
         i += 1
 
     maxl = 0
